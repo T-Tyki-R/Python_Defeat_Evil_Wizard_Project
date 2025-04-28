@@ -9,7 +9,7 @@ class Saint(Character):
 
         # A Defense/Evade Function
     def ability1(self, opponent, ability="Holy Shine"):
-        # Player takes 25% of the attack damage dealt to them if evade fails
+        # Player takes 30% of the attack damage dealt to them if evade fails
         dmg_taken = opponent.attack(self) * 0.3
         # Evade success rate is 50%
         evade_chance = random.random() < 0.5

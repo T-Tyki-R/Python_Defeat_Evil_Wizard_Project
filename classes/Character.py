@@ -17,19 +17,7 @@ class Character:
             print(f"{opponent.name} has been defeated!")
         return attack_dmg
 
-    # defend method to dodge an attack
-    def defend(self, opponent):
-        # Player'll take 25% of the attack damage dealt to them if false
-        dmg_dealt = opponent.attack(self) * .25
-        # Evade success rate is 50%
-        evade_chance = random.random() < .5
-        if evade_chance:
-            print(f"{self.name} defended the attack from {opponent.name}!")
-        else:
-            self.health -= dmg_dealt
-            print(f"{self.name} failed to evdefend ade and took {dmg_dealt} damage!")
-            if self.health <= 0:
-                print(f"{self.name} has been defeated!")
+  
 
     # Heal method to regenerate health
     def heal(self):
