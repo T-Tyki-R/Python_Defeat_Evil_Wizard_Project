@@ -39,9 +39,9 @@ def battle(player, wizard):
         if choice == '1':
             player.attack(wizard)
         elif choice == '2':
-            pass  # Implement special abilities
+            player.ability_choice(wizard)
         elif choice == '3':
-            pass  # Implement heal method
+            player.heal()
         elif choice == '4':
             player.display_stats()
         else:
@@ -50,13 +50,6 @@ def battle(player, wizard):
         if wizard.health > 0:
             wizard.regenerate()
             wizard.attack(player)
-
-        if player.health <= 0:
-            print(f"{player.name} has been defeated!")
-            break
-
-    if wizard.health <= 0:
-        print(f"The wizard {wizard.name} has been defeated by {player.name}!")
 
 def main():
     player = create_character()

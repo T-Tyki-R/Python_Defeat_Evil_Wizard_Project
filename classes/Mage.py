@@ -1,5 +1,6 @@
 from Character import Character
 import random
+import math
 
 # Mage class (inherits from Character)
 class Mage(Character):
@@ -9,14 +10,14 @@ class Mage(Character):
     # A Defense/Evade Function
     def ability1(self, opponent, ability="Lunar Ray"):
         # Player takes 25% of the attack damage dealt to them if evade fails
-        dmg_taken = opponent.attack(self) * 0.25
+        dmg_taken = int(math.floor(opponent.attack(self) * 0.25))
         # Evade success rate is 50%
         evade_chance = random.random() < 0.5
         if evade_chance:
-            print(f"{self.name} successfully evaded the attack from {opponent.name} using {ability}!")
+            print(f"{self.name} successfully evaded the attack from {opponent.name} using {ability}! current health: {self.health}")
         else:
             self.health -= dmg_taken
-            print(f"{self.name} failed to evade and defend, taking {dmg_taken:.2f} damage!")
+            print(f"{self.name} failed to evade and defend, taking {dmg_taken} damage!")
             if self.health <= 0:
                 print(f"{self.name} has been defeated!")
     
@@ -32,15 +33,18 @@ class Mage(Character):
 
     # User Choice Function
     def ability_choice(self, opponent):
-        print("1. Lunar Ray (Defense)\n2. Nature's Wrath (Offense)")
-        # Error Handling
-        try:
-            user_choice = int(input("Which ability do you want to use? "))
-            if user_choice == 1:
-                self.ability1(opponent)
-            elif user_choice == 2:
-                self.ability2(opponent)
-            else:
-                print("Invalid choice!")
-        except ValueError:
-            print("Invalid input! Please enter a number.")
+        while True:
+            print("1. Lunar Ray (Defense)\n2. Nature's Wrath (Offense)")
+            # Error Handling
+            try:
+                user_choice = int(input("Which ability do you want to use? "))
+                if user_choice == 1:
+                    self.ability1(opponent)
+                    break
+                elif user_choice == 2:
+                    self.ability2(opponent)
+                    break
+                else:
+                    print("Invalid choice! Enter either 1 or 2...")
+            except ValueError:
+                print("Invalid input! Please enter a number.")

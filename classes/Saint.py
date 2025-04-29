@@ -1,6 +1,6 @@
 from Character import Character
 import random
-
+import math
 
 # Saint class (inherits from Character)
 class Saint(Character):
@@ -10,14 +10,14 @@ class Saint(Character):
         # A Defense/Evade Function
     def ability1(self, opponent, ability="Holy Shine"):
         # Player takes 30% of the attack damage dealt to them if evade fails
-        dmg_taken = opponent.attack(self) * 0.3
+        dmg_taken = int(math.floor(opponent.attack(self) * 0.3))
         # Evade success rate is 50%
         evade_chance = random.random() < 0.5
         if evade_chance:
             print(f"{self.name} successfully evaded the attack from {opponent.name} using {ability}!")
         else:
             self.health -= dmg_taken
-            print(f"{self.name} failed to evade and defend, taking {dmg_taken:.2f} damage!")
+            print(f"{self.name} failed to evade and defend, taking {dmg_taken} damage!")
             if self.health <= 0:
                 print(f"{self.name} has been defeated!")
     

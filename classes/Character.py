@@ -1,4 +1,5 @@
 import random
+import math
 
 # Base Character class
 class Character:
@@ -21,14 +22,14 @@ class Character:
 
     # Heal method to regenerate health
     def heal(self):
-        health_regen = self.health * .1  # Regenerate 10% of health
+        health_regen = int(math.floor(self.health * .25) ) # Regenerate 25% of health)
         # Check if the player's health is below a certain threshold before healing
         if self.health < 150 and self.health + health_regen < 150: 
             self.health += health_regen
             print(f"{self.name} regenerates {health_regen} health! Current health: {self.health}")
         else:
             # If health is above the threshold, set it to max health = (160)
-            self.health = 160
+            self.health = 150
             print(f"{self.name} has maxed out health! Current health: {self.health}")
 
     def display_stats(self):

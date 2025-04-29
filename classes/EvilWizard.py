@@ -1,14 +1,16 @@
 from Character import Character
+import random
+import math
 
 # Evil Wizard class (inherits from Character)
 class EvilWizard(Character):
     def __init__(self, name):
-        super().__init__(name, health=175, attack_power=20)
+        super().__init__(name, health=160, attack_power=20)
 
     def regenerate(self):
-        health_regen = self.health * .1  # Regenerate 10% of health
+        health_regen = int(math.floor(self.health * .05) ) # Regenerate 5% of health)
         # Check if the wizard's health is below a certain threshold before regenerating
-        if self.health < 160 and self.healh + health_regen < 160: 
+        if self.health < 160 and self.health + health_regen < 160: 
             self.health += health_regen
             print(f"{self.name} regenerates {health_regen} health! Current health: {self.health}")
         else:
