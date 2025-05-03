@@ -36,6 +36,7 @@ def battle(player, wizard):
 
         choice = input("Choose an action: ")
 
+
         if choice == '1':
             player.attack(wizard)
         elif choice == '2':
@@ -47,9 +48,17 @@ def battle(player, wizard):
         else:
             print("Invalid choice. Try again.")
 
-        if wizard.health > 0:
+        if choice != '2' and wizard.health > 0:
             wizard.regenerate()
             wizard.attack(player)
+        
+        if player.health <= 0:
+            print(f"{player.name} has been defeated!")
+            break
+
+        if wizard.health <= 0:
+            print(f"The wizard {wizard.name} has been defeated by {player.name}!")
+
 
 def main():
     player = create_character()
