@@ -41,7 +41,7 @@ class Saint(Character):
 
     # User Choice Function
     def ability_choice(self, opponent):
-        print("1. Perfect Guard (Defense)\n2. Justly Slash (Offense)")
+        print("1. Holy Light (Defense)\n2. Righteous Purity (Offense)")
         try:
             user_choice = int(input("Which ability do you want to use? "))
             if user_choice == 1:

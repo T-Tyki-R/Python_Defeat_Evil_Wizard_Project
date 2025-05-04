@@ -8,7 +8,7 @@ class Assassin(Character):
         super().__init__(name, health=150, attack_power=35)
     
      # A Defense/Evade Function
-    def ability1(self, opponent, ability="Lunar Ray"):
+    def ability1(self, opponent, ability="Shadow Step"):
         sim_dmg = random.randint(5, opponent.attack_power)
         # Player takes 25% of the attack damage dealt to them if evade fails
         dmg_taken = int(math.floor(sim_dmg * 0.25))
@@ -41,7 +41,7 @@ class Assassin(Character):
 
     # User Choice Function
     def ability_choice(self, opponent):
-        print("1. Perfect Guard (Defense)\n2. Justly Slash (Offense)")
+        print("1.Shadow Step (Defense)\n2. Silent Night (Offense)")
         try:
             user_choice = int(input("Which ability do you want to use? "))
             if user_choice == 1:

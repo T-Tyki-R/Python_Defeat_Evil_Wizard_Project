@@ -42,7 +42,7 @@ class Mage(Character):
 
     # User Choice Function
     def ability_choice(self, opponent):
-        print("1. Perfect Guard (Defense)\n2. Justly Slash (Offense)")
+        print("1. Lunar Ray (Defense)\n2. Nature's Wrath (Offense)")
         try:
             user_choice = int(input("Which ability do you want to use? "))
             if user_choice == 1:
