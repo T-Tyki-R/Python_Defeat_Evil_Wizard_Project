@@ -23,8 +23,6 @@ class Saint(Character):
             self.health -= dmg_taken
             print(f"{opponent.name} launched his attack!")
             print(f"{self.name} failed to evade and defend, taking {dmg_taken} damage!")
-            if self.health <= 0:
-                print(f"{self.name} has been defeated!")
     
     # An Offensive Function
     def ability2(self, opponent, ability = "Righteous Purity"):
@@ -33,11 +31,10 @@ class Saint(Character):
         # Deal damage to opponent
         opponent.health -= dmg_dealt
         print(f"{self.name} attacked {opponent.name} with {ability}, dealing {dmg_dealt} damage!")
-        print(f"{opponent.name} attacked {self.name}, dealing {sim_dmg}")
-        opponent.regenerate()
-
-        if opponent.health <= 0:
-            print(f"{opponent.name} has been defeated!")
+        if opponent.health > 0:
+            print(f"{opponent.name} attacked {self.name}, dealing {sim_dmg} damage!")
+            self.health -= sim_dmg
+            opponent.regenerate()
 
     # User Choice Function
     def ability_choice(self, opponent):

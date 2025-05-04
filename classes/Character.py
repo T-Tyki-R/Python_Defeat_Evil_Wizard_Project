@@ -22,7 +22,7 @@ class Character:
 
     # Heal method to regenerate health
     def heal(self):
-        health_regen = int(math.floor(self.health * .25) ) # Regenerate 25% of health)
+        health_regen = random.randint(25, 40)
         # Check if the player's health is below a certain threshold before healing
         if self.health < 150 and self.health + health_regen < 150: 
             self.health += health_regen
