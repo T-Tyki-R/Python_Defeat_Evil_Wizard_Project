@@ -16,7 +16,7 @@ class EvilWizard(Character):
         elif self.health <= 0:
             self.health = 0
         else:
-            # If health is above the threshold, set it to max health = (160)
+            # If health is above the threshold, set it to max health = (200)
             self.health = 200
             print(f"{self.name} has maxed out health! Current health: {self.health}")
 
