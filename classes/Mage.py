@@ -20,7 +20,6 @@ class Mage(Character):
             print(f"{self.name} successfully evaded the attack from {opponent.name} using {ability}!")
             print(f"No damage taken. Current health: {self.health}")
             opponent.regenerate()
-            print(f"Current health: {self.health}")
         else:
             self.health -= dmg_taken
             print(f"{opponent.name} launched his attack!")
