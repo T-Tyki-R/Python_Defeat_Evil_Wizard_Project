@@ -8,11 +8,13 @@ class EvilWizard(Character):
         super().__init__(name, health=160, attack_power=20)
 
     def regenerate(self):
-        health_regen = int(math.floor(self.health * .05) ) # Regenerate 5% of health)
+        health_regen = int(math.floor(random.randint(5, self.health) * .1 )) # Regenerate 10% of health)
         # Check if the wizard's health is below a certain threshold before regenerating
         if self.health < 160 and self.health + health_regen < 160: 
             self.health += health_regen
             print(f"{self.name} regenerates {health_regen} health! Current health: {self.health}")
+        elif self.health <= 0:
+            self.health = 0
         else:
             # If health is above the threshold, set it to max health = (160)
             self.health = 160

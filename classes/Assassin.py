@@ -41,8 +41,7 @@ class Assassin(Character):
 
     # User Choice Function
     def ability_choice(self, opponent):
-        print("1. Moonlite Lurk (Defense)\n2. Silent Night (Offense)")
-        # Error Handling
+        print("1. Perfect Guard (Defense)\n2. Justly Slash (Offense)")
         try:
             user_choice = int(input("Which ability do you want to use? "))
             if user_choice == 1:
@@ -50,7 +49,10 @@ class Assassin(Character):
             elif user_choice == 2:
                 self.ability2(opponent)
             else:
-                print("Invalid choice! Enter either 1 or 2...")
+                # Only print invalid choice if the opponent is still alive
+                if opponent.health > 0:
+                    print("Invalid choice! Enter either 1 or 2...")
         except ValueError:
-            print("Invalid input! Please enter a number.")
-
+            # Only print invalid input if the opponent is still alive
+            if opponent.health > 0:
+                print("Invalid input! Please enter a number.")
