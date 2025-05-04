@@ -5,7 +5,7 @@ import math
 # Evil Wizard class (inherits from Character)
 class EvilWizard(Character):
     def __init__(self, name):
-        super().__init__(name, health=200, attack_power=20)
+        super().__init__(name, health=200, attack_power=30)
 
     def regenerate(self):
         health_regen = int(math.floor(random.randint(5, self.health) * .1 )) # Regenerate 10% of health)

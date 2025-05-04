@@ -30,9 +30,10 @@ class Assassin(Character):
     # An Offensive Function
     def ability2(self, opponent, ability = "Silent Night"):
         dmg_dealt = random.randint(20, 30)
+        sim_dmg = random.randint(10, opponent.attack_power)
         # Deal damage to opponent
         opponent.health -= dmg_dealt
-        print(f"{self.name} attacked {opponent.name} with {ability}, dealing {dmg_dealt} damage!")
+        print(f"{self.name} attacked {opponent.name} with {ability}, dealing {sim_dmg} damage!")
         print(f"{opponent.name} attacked {self.name}, dealing {opponent.attack_power}")
         opponent.regenerate()
 
